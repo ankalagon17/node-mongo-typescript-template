@@ -1,25 +1,23 @@
-import { Schema } from "mongoose";
+import { Typegoose, prop } from "typegoose";
 
-export const CONTACT_SCHEMA: Schema = new Schema({
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String
-    },
-    company: {
-        type: String
-    },
-    phone: {
-        type: Number
-    },
-    created_date: {
-        type: Date,
-        default: Date.now
-    }
-});
+export class Contact extends Typegoose {
+
+    @prop({required: true})
+    firstName: string;
+
+    @prop({required: true})
+    lastName: string;
+
+    @prop()
+    email: string;
+
+    @prop()
+    company: string;
+
+    @prop()
+    phone: number;
+
+    @prop()
+    createdDate: Date;
+
+}

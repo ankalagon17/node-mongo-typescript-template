@@ -13,7 +13,7 @@ export class Config {
         this.app = express();
         this.appConfig();
         this.route = new Routes(this.app);
-        this.mongoUrl = "mongodb://localhost/CRMdb";
+        this.mongoUrl = "mongodb://localhost:27017/CRMdb";
         this.mongoConfig();
     }
 

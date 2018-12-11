@@ -1,12 +1,12 @@
-import mongoose, {Model, Document } from "mongoose";
-import { CONTACT_SCHEMA } from "../models/Contact";
+import {Model, Document } from "mongoose";
 import { Request, Response, NextFunction } from "express";
+import { InstanceType } from "typegoose";
+import { Contact } from "../models/Contact";
 
-const CONTACT:Model<Document, any> = mongoose.model("Contact", CONTACT_SCHEMA);
+//const CONTACT:Model<Document, any> = mongoose.model("Contact", CONTACT_SCHEMA);
+const CONTACT: Model<InstanceType<Contact>, {}> = new Contact().getModelForClass(Contact);
 
 export class ContactController {
-
-    // private _contact = mongoose.model("Contact", CONTACT_SCHEMA);
 
     public addNewContact(req: Request, res: Response, next: NextFunction): void {
         let newContact: Document = new CONTACT(req.body);
